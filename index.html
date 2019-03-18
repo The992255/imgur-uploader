@@ -60,41 +60,4 @@
 </div>
 <script src="main.js"></script>
 </body>
-<script>
-     fetch('http://192.168.1.102:8082/userTest/user/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            userInfo: { email: "bbb@xmail.com", password: 111111 }
-        })
-    }).then(res => {
-        return res.json();
-    }).then(data => {
-        console.log(data)
-        fetch('http://192.168.1.102:8082/userTest/user/update', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(
-                {
-                    language: "en",
-                    sysId: 2,
-                    userInfo: { type: "app", userId: 1, name: "bbb", email: "bbb@xmail.com" }
-                })
-        }).then(res => {
-            console.log(res)
-            return res.json();
-        }).then(data => {
-            console.log(data)
-        }).catch(error => {
-            console.log(error)
-        })
-    }).catch(error => {
-        console.log(error)
-    })
-</script>
-
 </html>
