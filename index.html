@@ -26,75 +26,292 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/fontawesome.css" integrity="sha384-1rquJLNOM3ijoueaaeS5m+McXPJCGdr5HcA03/VHXxcp2kX2sUrQDmFc3jR5i/C7"
         crossorigin="anonymous">
 </head>
-<div class="impge-up-father">
-    <h2>Imgur Uploader</h2>
-    <div class="image-all">
-        <div class="image-up">
-            <div class="cloud-father"></div>
-            <i class="fas fa-cloud-upload-alt"></i>
-            <div class="text"> <span>Drag images here or...</span>
-                <span><input type="file" id="uploader" accept="image/png, image/jpeg, image/gif" onchange="upload(this)"
-                        style="display: none">
-                    <button type="button" onclick="uploader.click()" class="btnUp">檔案上傳</button></span>
-            </div>
+<body>
+    <div class="pie-box">
+        <div class="bg-1 pie"></div>
+        <div class="bg-2 pie"></div>
+        <div class="bg-3 pie"></div>
+        <div class="info">
+            <div class="title">活動力(%)</div>
+            <div class="value">45</div>
+            <div class="say">正常值 ≧ 40</div>
         </div>
-        <div class="your-image">
-            <span class="errorText"></span>
-            <input class="your-image-text-none"><button class="your-image-btn-none" onclick="toCopy()">複製</button>
-            <div class="image-father">
-                <img class="image">
-            </div>
-        </div>
+        <div class="background"></div>
     </div>
-</div>
-<div class="backgroup-none"></div>
-<div id="fountainG" class="fountainG-none">
-    <div id="fountainG_1" class="fountainG"></div>
-    <div id="fountainG_2" class="fountainG"></div>
-    <div id="fountainG_3" class="fountainG"></div>
-    <div id="fountainG_4" class="fountainG"></div>
-    <div id="fountainG_5" class="fountainG"></div>
-    <div id="fountainG_6" class="fountainG"></div>
-    <div id="fountainG_7" class="fountainG"></div>
-    <div id="fountainG_8" class="fountainG"></div>
-</div>
-<script src="main.js"></script>
-</body>
-<script>
-     fetch('http://192.168.1.102:8082/userTest/user/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            userInfo: { email: "bbb@xmail.com", password: 111111 }
-        })
-    }).then(res => {
-        return res.json();
-    }).then(data => {
-        console.log(data)
-        fetch('http://192.168.1.102:8082/userTest/user/update', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(
-                {
-                    language: "en",
-                    sysId: 2,
-                    userInfo: { type: "app", userId: 1, name: "bbb", email: "bbb@xmail.com" }
-                })
-        }).then(res => {
-            console.log(res)
-            return res.json();
-        }).then(data => {
-            console.log(data)
-        }).catch(error => {
-            console.log(error)
-        })
-    }).catch(error => {
-        console.log(error)
-    })
-</script>
+
+    <div class="pie-box tra">
+        <div class="bg-1 pie"></div>
+        <div class="bg-2 pie"></div>
+        <div class="bg-3 pie"></div>
+        <div class="bg-5 pie"></div>
+        <div class="background"></div>
+        <div class="info rrr">
+            <div class="title">活動力(%)</div>
+            <div class="value">55</div>
+            <div class="say">正常值 ≧ 40</div>
+        </div>
+        <div class="angular"></div>
+    </div>
+
+    <div class="pie-box pie-box-2">
+        <div class="bg-1 pie"></div>
+        <div class="bg-2 pie"></div>
+        <div class="bg-3 pie"></div>
+        <div class="bg-4 pie"></div>
+        <div class="bg-5 pie"></div>
+        <div class="background"></div>
+        <div class="info">
+            <div class="title">濃度(M/ML)</div>
+            <div class="value greed">187.7</div>
+            <div class="say">正常值 ≧ 100</div>
+        </div>
+        <!-- <div class="angular"></div> -->
+    </div>
+
+    <div class="pie-box pie-box-2 tra">
+        <div class="bg-1 pie"></div>
+        <div class="bg-2 pie"></div>
+        <div class="bg-3 pie"></div>
+        <div class="bg-4 pie"></div>
+        <!-- <div class="bg-5 pie"></div> -->
+        <div class="background"></div>
+        <div class="info rrr">
+            <div class="title">濃度(M/ML)</div>
+            <div class="value greed">187.7</div>
+            <div class="say">正常值 ≧ 100</div>
+        </div>
+        <div class="angular"></div>
+    </div>
+    </body>
+<style>
+    .info {
+        width: 200px;
+        position: absolute;
+        height: 200px;
+        text-align: center;
+        top: 0;
+        left: 0;
+        z-index: 60;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        font-family: Microsoft JhengHei;
+    }
+
+    .title {
+        font-size: 14px;
+    }
+
+    .value {
+        font-weight: 900;
+        color: blue;
+        font-size: 62px;
+    }
+
+    .greed {
+        color: green;
+    }
+
+    .say {
+        color: #5e5e5e;
+        font-size: 12px;
+    }
+
+    .tra {
+        transform: rotate(45deg);
+    }
+
+    .rrr {
+        transform: rotate(-45deg);
+    }
+
+    .pie-box {
+        height: 200px;
+        width: 200px;
+        position: relative;
+        margin: 50px;
+        display: inline-block;
+    }
+
+    .pie-box .pie {
+        clip: rect(0 100px 200px 0);
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        border-radius: 50%;
+    }
+
+    .bg-1 {
+        background-color: #f5f5f5;
+    }
+
+    .bg-2 {
+        background-color: rgb(93, 93, 204);
+        transform: rotate(-50deg);
+        animation-name: l180to0;
+        animation-duration: 3s;
+        animation-timing-function: linear;
+    }
+
+    @keyframes l180to0 {
+        0% {
+            background-color: rgb(65, 0, 59);
+            transform: rotate(-180deg)
+        }
+
+        100% {
+            background-color: rgb(93, 93, 204);
+            transform: rotate(-50deg)
+        }
+    }
+
+    .bg-3 {
+        z-index: 2;
+        background-color: #f5f5f5;
+        transform: rotate(180deg);
+    }
+
+    .bg-4 {
+        background-color: rgb(15, 15, 182);
+        transform: rotate(180deg);
+    }
+
+    .bg-5 {
+        z-index: 1;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, .3));
+        transform: rotate(-50deg);
+        animation-name: l180to0c;
+        animation-duration: 3s;
+        animation-timing-function: linear;
+    }
+
+    @keyframes l180to0c {
+        0% {
+            transform: rotate(-180deg)
+        }
+
+        100% {
+            transform: rotate(-50deg)
+        }
+    }
+
+    .background {
+        width: 180px;
+        height: 180px;
+        background-color: #fff;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        border-radius: 50%;
+        z-index: 5;
+    }
+
+    .angular {
+        position: absolute;
+        background-color: #fff;
+        width: 100px;
+        height: 100px;
+        left: 0;
+        top: 0;
+        border-radius: 100% 0 0 0;
+        transition: inherit;
+        transform-origin: 100px 100px;
+        transform: rotate(180deg);
+        z-index: 8;
+    }
+
+
+
+    .pie-box-2 .bg-2 {
+        background-color: rgb(130, 223, 153);
+        transform: rotate(0deg);
+        animation-name: l180to02;
+        animation-duration: 3s;
+        animation-timing-function: linear;
+    }
+
+    @keyframes l180to02 {
+        0% {
+            background-color: rgb(7, 99, 30);
+            transform: rotate(-180deg);
+        }
+
+        50% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(0deg);
+            background-color: rgb(130, 223, 153);
+        }
+    }
+
+    .pie-box-2 .bg-4 {
+        transform: rotate(80deg);
+        background-color: rgb(130, 223, 153);
+        animation-name: l180to03;
+        animation-duration: 3s;
+        z-index: 3;
+        opacity: 1;
+        animation-timing-function: linear;
+    }
+
+    @keyframes l180to03 {
+        0% {
+            background-color: rgb(7, 99, 30);
+            transform: rotate(-180deg);
+            opacity: 0;
+        }
+
+        49% {
+            opacity: 0;
+        }
+
+        50% {
+            transform: rotate(0deg);
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 1;
+            transform: rotate(80deg);
+            background-color: rgb(130, 223, 153);
+        }
+    }
+
+    .pie-box-2 .bg-5 {
+        z-index: 3;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, .3));
+        transform: rotate(80deg);
+        animation-name: l180to0d;
+        animation-duration: 3s;
+        animation-timing-function: linear;
+    }
+
+    @keyframes l180to0d {
+        0% {
+            z-index: 1;
+            transform: rotate(-180deg);
+        }
+
+        49% {
+            z-index: 1;
+        }
+
+        50% {
+            transform: rotate(0deg);
+            z-index: 1;
+        }
+
+        51% {
+            z-index: 3;
+        }
+
+        100% {
+            z-index: 3;
+            transform: rotate(80deg);
+        }
+    }
+</style>
 
 </html>
